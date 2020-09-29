@@ -56,8 +56,15 @@ namespace gmicros_arduino_interface
                 try
                 {
                     port_.Write(message);
-                    string resp = port_.ReadLine();
-                    Debug.Log("resp: " + resp);
+                    try
+                    {
+                        string resp = port_.ReadLine();
+                        Debug.Log("resp: " + resp);
+                    }
+                    catch (System.TimeoutException)
+                    {
+                        Debug.LogError("Read timeout");
+                    }
                 }
                 catch (System.TimeoutException)
                 {
