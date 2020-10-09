@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29806.167
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ArduinoSerialInterface", "ArduinoSerialInterface\ArduinoSerialInterface.csproj", "{977F2C73-FDFC-4F2E-8B67-4EEE34B3F6E3}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{977F2C73-FDFC-4F2E-8B67-4EEE34B3F6E3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{977F2C73-FDFC-4F2E-8B67-4EEE34B3F6E3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{977F2C73-FDFC-4F2E-8B67-4EEE34B3F6E3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{977F2C73-FDFC-4F2E-8B67-4EEE34B3F6E3}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {2C97FC57-00F3-4983-AC8A-63517FA1E22A}
+	EndGlobalSection
+EndGlobal
