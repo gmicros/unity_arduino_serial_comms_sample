@@ -4,7 +4,7 @@ using System.Text;
 
 namespace UnityArduinoComms
 {
-    class MessageUtils
+    public class MessageUtils
     {
         public static string FillMessage(Vibrotactor vib, int duration, int intensity)
         {

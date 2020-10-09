@@ -1,5 +1,5 @@
 ﻿using UnityEngine;
-using gmicros_arduino_interface;
+using UnityArduinoComms;
 
 public class ButtonController : MonoBehaviour
 {
@@ -15,7 +15,7 @@ public class ButtonController : MonoBehaviour
     public void TaskOnClick()
     {
         ArduinoSerialInterface.Init();
-        string msg = ArduinoSerialInterface.FillMessage(vibro, duration, intensity);
+        string msg = MessageUtils.FillMessage(vibro, duration, intensity);
         Debug.Log("Filled msg: " + msg);
         ArduinoSerialInterface.SendMessage(msg);        
     }
