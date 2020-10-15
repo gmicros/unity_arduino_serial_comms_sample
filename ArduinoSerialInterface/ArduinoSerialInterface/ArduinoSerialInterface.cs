@@ -14,6 +14,7 @@ namespace UnityArduinoComms
             {
                 //Debug.Log("Initializing ArduinoInterface");
                 port_ = new SerialPort();
+                // TODO(gmicros): this should not be hardcoded
                 port_.PortName = "COM5";
                 port_.BaudRate = 9600;
                 port_.Parity = Parity.None;
