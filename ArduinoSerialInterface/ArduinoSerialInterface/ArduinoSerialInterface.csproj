@@ -5,6 +5,8 @@
     <ApplicationIcon />
     <OutputType>Library</OutputType>
     <StartupObject />
+    <AssemblyName>UnityArduinoComms</AssemblyName>
+    <RootNamespace>UnityArduinoComms</RootNamespace>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
