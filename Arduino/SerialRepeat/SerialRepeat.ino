@@ -88,7 +88,20 @@ bool validateVibrotactor(int const vibrotactor) {
   return true;
 }
 
-// $UNITY,Front,0,6,*30
+int parseIntString(String const str){
+  if(str == ""){
+    return -1;
+  }
+
+  int const val = atoi(str.c_str());
+  if(val == 0 && str != "0") {
+    // error in parsing 
+    return -1;
+  }
+  return val;
+}
+
+// $UNITY,0,100,6,*30
 bool parseCommandString(String command){
   int vibrotactor = -1;
   int duration = -1;
@@ -109,38 +122,35 @@ bool parseCommandString(String command){
   char *p = &buf[7];
   char* str;
   int num_tokens = 0;
-  String resp ="";
+  
   while( (str = strtok_r(p, ",",  &p)) != NULL){
-    //Serial.write(str);
+    // parse valid strings
+    String const token = String(str);
+    int const token_val = parseIntString(str);
+    
     switch(num_tokens)
     {
       case 0:
       {
       // vibrotactor
-      resp += " vibrotactor: " + String(str);
-      int const vib = atoi(str);
-      if (validateVibrotactor(vib) ) {
-        vibrotactor = vib;
+      if ( validateVibrotactor(token_val) ) {
+        vibrotactor = token_val;
       }
       break;
       }
       case 1:
       {
         // duration
-        int dur = atoi(str);
-        resp += " duration: " + String(str);
-        if(validateDuration(dur)){
-          duration = dur;
+        if(validateDuration(token_val)){
+          duration = token_val;
         }
         break;
       }
       case 2:
       {
         // intensity
-        int inte = atoi(str);
-        resp += " intensity: " + String(str);
-        if(validateIntensity(inte)){
-          intensity = inte;
+        if(validateIntensity(token_val)){
+          intensity = token_val;
         }
         break;
       }
@@ -148,20 +158,23 @@ bool parseCommandString(String command){
       {
         // checksum
         int checksum = atoi(str+1);
-        resp += " checksum: " + String(str+1);
         break;
       }
     } 
     
     num_tokens++;
   }
-  resp += "\n";
 
   //TODO(gmicros): verify checksum 
 
   //TODO(gmicros): command vibrotactor 
-  Serial.write(resp.c_str());
-  
+
+  // Debug output
+  String resp ="";
+  resp += " vib[ " + String(vibrotactor) + " ] ";
+  resp += " intes[ " + String(intensity) + " ] ";
+  resp += " dur [ " + String(duration) + " ] \n";
+  Serial.write(resp.c_str());  
 
   return false;
 }
