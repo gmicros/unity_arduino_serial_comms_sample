@@ -63,8 +63,8 @@ namespace UnityArduinoComms
     public enum Vibrotactor
     {
         Front,
-        Back,
         Left,
+        Back,
         Right,
         Top,
         Bottom
