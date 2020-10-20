@@ -38,6 +38,31 @@ void setup() {
 void loop() {
 
 }
+bool handleVibrotactor(int vibrotactor) {
+  // check valid value
+  if(vibrotactor < 0 && vibrotactor > 4) {
+    return false; 
+  }
+
+  switch(vibrotactor){
+    case 0:
+    // front vib
+    break;
+
+    case 1:
+    // left vib
+    break;
+
+    case 2:
+    // back vib
+    break;
+
+    case 3:
+    // right vib
+    break;
+  }
+  return true;
+}
 
 // $UNITY,Front,0,6,*30
 bool parseCommandString(String command){
@@ -68,6 +93,8 @@ bool parseCommandString(String command){
       {
       // vibrotactor
       resp += " vibrotactor: " + String(str);
+      int vib = atoi(str);
+      handleVibrotactor(vib);
       break;
       }
       case 1:
