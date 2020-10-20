@@ -48,7 +48,7 @@ void loop() {
 }
 
 bool validateDuration(int const duration){
-  if(duration < MIN_DURATION && duration > MAX_DURATION) {
+  if(duration < MIN_DURATION || duration > MAX_DURATION) {
     return false;
   }
 
@@ -56,7 +56,7 @@ bool validateDuration(int const duration){
 }
 
 bool validateIntensity(int const intensity) {
-  if(intensity < MIN_INTENSITY && intensity > MAX_INTENSITY) {
+  if(intensity < MIN_INTENSITY || intensity > MAX_INTENSITY) {
     return false;
   }
   return true;
@@ -64,7 +64,7 @@ bool validateIntensity(int const intensity) {
 
 bool validateVibrotactor(int const vibrotactor) {
   // check valid value
-  if(vibrotactor < MIN_VIBROTACTOR && vibrotactor > MAX_VIBROTACTOR ) {
+  if(vibrotactor < MIN_VIBROTACTOR || vibrotactor > MAX_VIBROTACTOR ) {
     return false; 
   }
 
@@ -107,11 +107,13 @@ bool parseCommandString(String command){
   int duration = -1;
   int intensity = -1;
 
-  
+  // no start delimiter - early exit
   if(command.substring(0,1) != start_delimiter){
     Serial.write("could not find start_delimiter\n");    
     return false;
   }
+
+  // no identifier - early exit
   if(command.substring(1,6) != identifier){
     Serial.write("could not find id\n");    
     return false;
@@ -122,42 +124,57 @@ bool parseCommandString(String command){
   char *p = &buf[7];
   char* str;
   int num_tokens = 0;
-  
+
+  // parse on "," delimiter
   while( (str = strtok_r(p, ",",  &p)) != NULL){
     // parse valid strings
     String const token = String(str);
     int const token_val = parseIntString(str);
     
+
+    // keep track of the token position 
     switch(num_tokens)
     {
-      case 0:
-      {
       // vibrotactor
-      if ( validateVibrotactor(token_val) ) {
+      case 0:
+      {     
+        if (!validateVibrotactor(token_val) ) {
+          Serial.write("invalid vib value\n");
+          return false;
+        }
         vibrotactor = token_val;
+        break;
       }
-      break;
-      }
+
+      // duration
       case 1:
       {
-        // duration
-        if(validateDuration(token_val)){
-          duration = token_val;
+                
+        if (!validateDuration(token_val)){
+          Serial.write("invalid duration\n");
+          return false;
         }
+        duration = token_val;
         break;
       }
+
+      // intensity
       case 2:
       {
-        // intensity
-        if(validateIntensity(token_val)){
+          if(!validateIntensity(token_val)){
+            Serial.write("invalid intensity\n");
+            return false;
+          }
           intensity = token_val;
-        }
-        break;
+          break;
       }
+
+      // checksum
       case 3:
       {
         // checksum
         int checksum = atoi(str+1);
+        // TODO(gmicros): validate checksum
         break;
       }
     } 
