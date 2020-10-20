@@ -17,6 +17,7 @@ public class ButtonController : MonoBehaviour
         ArduinoSerialInterface.Init();
         string msg = MessageUtils.FillMessage(vibro, duration, intensity);
         Debug.Log("Filled msg: " + msg);
-        ArduinoSerialInterface.SendMessage(msg);        
+        string resp = ArduinoSerialInterface.SendMessage(msg);
+        Debug.Log("Resp: " + resp);
     }
 }
