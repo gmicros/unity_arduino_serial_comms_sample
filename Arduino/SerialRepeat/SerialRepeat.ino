@@ -196,7 +196,7 @@ bool parseCommandString(String command){
   resp += " vib[ " + String(vibrotactor) + " ] ";
   resp += " intes[ " + String(intensity) + " ] ";
   resp += " dur [ " + String(duration) + " ] \n";
-  Serial.write(resp.c_str());  
+  Serial.println(resp.c_str());  
 
   return false;
 }
