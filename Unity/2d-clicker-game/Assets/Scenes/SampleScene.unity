@@ -438,8 +438,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   vibro: 3
-  duration: 80
-  intensity: 85
+  duration: 120
+  intensity: 4
 --- !u!4 &407353588
 Transform:
   m_ObjectHideFlags: 0
@@ -927,8 +927,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   vibro: 0
-  duration: 90
-  intensity: 95
+  duration: 150
+  intensity: 4
 --- !u!4 &1000606433
 Transform:
   m_ObjectHideFlags: 0
@@ -973,8 +973,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   vibro: 2
-  duration: 70
-  intensity: 76
+  duration: 144
+  intensity: 9
 --- !u!4 &1006593387
 Transform:
   m_ObjectHideFlags: 0
@@ -1215,7 +1215,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   vibro: 1
   duration: 100
-  intensity: 100
+  intensity: 4
 --- !u!4 &1913148951
 Transform:
   m_ObjectHideFlags: 0

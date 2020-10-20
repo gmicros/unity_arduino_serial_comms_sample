@@ -91,7 +91,7 @@ namespace UnityArduinoComms
         {
             string msg_body = "";
             msg_body += MessageStructure.identifier + MessageStructure.field_delimiter_;
-            msg_body += vib.ToString() + MessageStructure.field_delimiter_;
+            msg_body += ((int)vib).ToString() + MessageStructure.field_delimiter_;
             msg_body += duration.ToString() + MessageStructure.field_delimiter_;
             msg_body += intensity.ToString() + MessageStructure.field_delimiter_;
             return msg_body;
