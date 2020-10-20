@@ -17,6 +17,14 @@
 
   http://www.arduino.cc/en/Tutorial/SerialEvent
 */
+#define MIN_VIBROTACTOR 0
+#define MAX_VIBROTACTOR 4
+#define MIN_DURATION 0
+#define MAX_DURATION 1000
+#define MIN_INTENSITY 0
+#define MAX_INTENSITY 10
+
+
 #define LED_DELAY 200
 String inputString = "";         // a String to hold incoming data
 bool stringComplete = false;  // whether the string is complete
@@ -38,9 +46,25 @@ void setup() {
 void loop() {
 
 }
-bool handleVibrotactor(int vibrotactor) {
+
+bool validateDuration(int const duration){
+  if(duration < MIN_DURATION && duration > MAX_DURATION) {
+    return false;
+  }
+
+  return true;
+}
+
+bool validateIntensity(int const intensity) {
+  if(intensity < MIN_INTENSITY && intensity > MAX_INTENSITY) {
+    return false;
+  }
+  return true;
+}
+
+bool validateVibrotactor(int const vibrotactor) {
   // check valid value
-  if(vibrotactor < 0 && vibrotactor > 4) {
+  if(vibrotactor < MIN_VIBROTACTOR && vibrotactor > MAX_VIBROTACTOR ) {
     return false; 
   }
 
@@ -66,9 +90,11 @@ bool handleVibrotactor(int vibrotactor) {
 
 // $UNITY,Front,0,6,*30
 bool parseCommandString(String command){
-  String sub = command.substring(0,1);
-  sub + "\n\r";
-  //Serial.write(sub.c_str());
+  int vibrotactor = -1;
+  int duration = -1;
+  int intensity = -1;
+
+  
   if(command.substring(0,1) != start_delimiter){
     Serial.write("could not find start_delimiter\n");    
     return false;
@@ -78,7 +104,6 @@ bool parseCommandString(String command){
     return false;
   }
 
-  int ind = 6;
   char buf[200];
   command.toCharArray(buf, sizeof(buf));
   char *p = &buf[7];
@@ -93,22 +118,30 @@ bool parseCommandString(String command){
       {
       // vibrotactor
       resp += " vibrotactor: " + String(str);
-      int vib = atoi(str);
-      handleVibrotactor(vib);
+      int const vib = atoi(str);
+      if (validateVibrotactor(vib) ) {
+        vibrotactor = vib;
+      }
       break;
       }
       case 1:
       {
         // duration
-        int duration = atoi(str);
+        int dur = atoi(str);
         resp += " duration: " + String(str);
+        if(validateDuration(dur)){
+          duration = dur;
+        }
         break;
       }
       case 2:
       {
         // intensity
-        int intensity = atoi(str);
+        int inte = atoi(str);
         resp += " intensity: " + String(str);
+        if(validateIntensity(inte)){
+          intensity = inte;
+        }
         break;
       }
       case 3:
