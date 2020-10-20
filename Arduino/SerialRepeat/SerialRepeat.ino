@@ -44,7 +44,9 @@ void setup() {
 
 // this loop is constantly running in the background 
 void loop() {
+  // TODO(gmicros): check for valid flag and do stuff
 
+  // TODO(gmicros): reset the flag and wait
 }
 
 bool validateDuration(int const duration){
@@ -119,6 +121,8 @@ bool parseCommandString(String command){
     return false;
   }
 
+  // TODO(gmicros): do the checksum early and exit if invalid;
+
   char buf[200];
   command.toCharArray(buf, sizeof(buf));
   char *p = &buf[7];
@@ -126,6 +130,7 @@ bool parseCommandString(String command){
   int num_tokens = 0;
 
   // parse on "," delimiter
+  // TODO(gmicros): make this handle only the message body
   while( (str = strtok_r(p, ",",  &p)) != NULL){
     // parse valid strings
     String const token = String(str);
@@ -212,7 +217,7 @@ void serialEvent() {
       stringComplete = true;
       bool val = parseCommandString(inputString);
       if(val){
-      Serial.write(inputString.c_str());
+        Serial.write(inputString.c_str());
       }
       inputString = "";
     }
