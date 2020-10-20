@@ -27,7 +27,7 @@ namespace UnityArduinoComms
             }
         }
 
-        public static bool SendMessage(string message)
+        public static string SendMessage(string message)
         {
             if (!init)
             {
@@ -42,6 +42,7 @@ namespace UnityArduinoComms
                     try
                     {
                         string resp = port_.ReadLine();
+                        return resp;
                         //Debug.Log("resp: " + resp);
                     }
                     catch (System.TimeoutException)
@@ -54,7 +55,7 @@ namespace UnityArduinoComms
                     //Debug.LogError("Write timeout");
                 }
             }
-            return false;
+            return "";
         }        
     }
 }
