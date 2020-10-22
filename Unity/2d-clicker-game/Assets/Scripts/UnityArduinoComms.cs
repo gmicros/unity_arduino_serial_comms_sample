@@ -91,12 +91,12 @@ namespace UnityArduinoComms
     /// </summary>
     public enum Vibrotactor
     {
-        Front,
-        Left,
-        Back,
-        Right,
-        Top,
-        Bottom
+        Front = 0,
+        Left = 1,
+        Back = 2,
+        Right = 3,
+        Top = 4,
+        Bottom =5
     }
 
     /// <summary>
