@@ -74,13 +74,13 @@ bool parseCommandString(String command){
 
   // no start delimiter - early exit
   if(command.substring(0,1) != start_delimiter){
-    Serial.write("could not find start_delimiter\n\r");    
+    Serial.println("could not find start_delimiter\n\r");    
     return false;
   }
 
   // no identifier - early exit
   if(command.substring(1,6) != identifier){
-    Serial.write("could not find id\n\r");    
+    Serial.println("could not find id\n\r");    
     return false;
   }
 

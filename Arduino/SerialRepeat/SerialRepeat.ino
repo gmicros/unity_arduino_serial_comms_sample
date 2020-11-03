@@ -95,6 +95,7 @@ void serialEvent() {
         output_pulse = true;
         
       }
+      inputString = "";
     }
   }
 }
