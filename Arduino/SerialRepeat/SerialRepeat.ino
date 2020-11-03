@@ -34,7 +34,7 @@ bool stringComplete = false;  // whether the string is complete
 
 void setup() {
   // initialize serial:
-  Serial.begin(1);
+  Serial.begin(9600);
   // reserve 200 bytes for the inputString:
   inputString.reserve(200);
   pinMode(LED_BUILTIN, OUTPUT);
