@@ -1,0 +1,5 @@
+[] make sure parsing works right
+[] get the waveform right
+[] better circuit?
+[] can intensity be controlled?
+[] different waveforms?
