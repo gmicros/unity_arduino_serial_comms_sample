@@ -48,7 +48,7 @@ void loop() {
   // TODO(gmicros): reset the flag and wait
 
   if (output_pulse) {
-    for (int i = 0; i < 200; i ++) {
+    for (int i = 0; i < 200 * num_pulses; i ++) {
       analogWrite( sin_out_put_pin , pulse_width_sin );    // PWM output at the given pins
       analogWrite( cos_out_put_pin , pulse_width_cos );
 

@@ -14,7 +14,7 @@
 #define MIN_INTENSITY 0
 #define MAX_INTENSITY 10
 extern bool output_pulse;
-
+extern int num_pulses;
 
 /**
  *  \brief Validate duration received

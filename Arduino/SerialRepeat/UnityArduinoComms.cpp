@@ -6,6 +6,7 @@ String start_delimiter = "$";
 String field_delimiter = ",";
 String checksum_delimiter = "*";
 bool output_pulse = true;
+int num_pulses = 3;
 
 bool validateDuration(int const duration){
   if(duration < MIN_DURATION || duration > MAX_DURATION) {
@@ -31,18 +32,22 @@ bool validateVibrotactor(int const vibrotactor) {
   switch(vibrotactor){
     case 0:
     // front vib
+    num_pulses = 1;
     break;
 
     case 1:
     // left vib
+    num_pulses = 2;
     break;
 
     case 2:
     // back vib
+    num_pulses = 3;
     break;
 
     case 3:
     // right vib
+    num_pulses = 4;
     break;
   }
   return true;
@@ -148,13 +153,13 @@ bool parseCommandString(String command){
   //TODO(gmicros): verify checksum 
 
   //TODO(gmicros): command vibrotactor 
-
+  output_pulse = true;
   // Debug output
   String resp ="";
   resp += " vib[ " + String(vibrotactor) + " ] ";
   resp += " intes[ " + String(intensity) + " ] ";
   resp += " dur [ " + String(duration) + " ] \n\r";
-  Serial.write(resp.c_str());  
+  Serial.println(resp);  
 
   return false;
 }
