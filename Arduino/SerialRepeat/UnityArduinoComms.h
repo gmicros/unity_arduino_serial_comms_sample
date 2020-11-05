@@ -13,8 +13,16 @@
 #define MAX_DURATION 1000
 #define MIN_INTENSITY 0
 #define MAX_INTENSITY 10
+
+// flag to output pulse
 extern bool output_pulse;
+// number of pulses to ouput
 extern int num_pulses;
+// pins to ouput pulse to
+extern int pulse_output_pin;
+// time between samples
+// TODO(gmicros): this needs units to be meaningful
+extern int sample_time;
 
 /**
  *  \brief Validate duration received

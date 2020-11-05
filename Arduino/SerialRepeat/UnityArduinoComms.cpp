@@ -5,8 +5,12 @@ String identifier = "UNITY";
 String start_delimiter = "$";
 String field_delimiter = ",";
 String checksum_delimiter = "*";
+
+// TODO(gmicros): hardcoded for testing
 bool output_pulse = true;
 int num_pulses = 3;
+int pulse_output_pin = 5;
+int sample_time = 4; 
 
 bool validateDuration(int const duration){
   if(duration < MIN_DURATION || duration > MAX_DURATION) {
