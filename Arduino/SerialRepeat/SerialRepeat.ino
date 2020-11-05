@@ -51,7 +51,7 @@ void loop() {
 
   if (output_pulse) {
     for (int i = 0; i < 200 * num_pulses; i ++) {
-      analogWrite( sin_out_put_pin , pulse_width_sin );    // PWM output at the given pins
+      analogWrite( pulse_output_pin , pulse_width_sin );    // PWM output at the given pins
       analogWrite( cos_out_put_pin , pulse_width_cos );
 
       if (theta == 3.14159265359) sign = -1;   // keep increasing the value of theta till pi and the decrease till zero
@@ -65,7 +65,7 @@ void loop() {
       pulse_width_sin = abs(pulse_width_sin);
       pulse_width_cos = abs(pulse_width_cos);
 
-      delay(4);  // control the frequency here
+      delayMicroseconds(sample_time);  // control the frequency here
     }
     output_pulse = false;
   }

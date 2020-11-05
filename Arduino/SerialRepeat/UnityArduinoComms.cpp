@@ -10,7 +10,7 @@ String checksum_delimiter = "*";
 bool output_pulse = true;
 int num_pulses = 3;
 int pulse_output_pin = 5;
-int sample_time = 4; 
+int sample_time = 11; 
 
 bool validateDuration(int const duration){
   if(duration < MIN_DURATION || duration > MAX_DURATION) {
