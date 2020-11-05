@@ -8,9 +8,9 @@ String checksum_delimiter = "*";
 
 // TODO(gmicros): hardcoded for testing
 bool output_pulse = true;
-int num_pulses = 3;
+int num_pulses = 5;
 int pulse_output_pin = 5;
-int sample_time = 11; 
+int sample_time = 20; 
 
 bool validateDuration(int const duration){
   if(duration < MIN_DURATION || duration > MAX_DURATION) {
@@ -166,4 +166,24 @@ bool parseCommandString(String command){
   Serial.println(resp);  
 
   return false;
+}
+
+void generateWaveform() {
+  // TODO(gmicros): figure out if we need args or just use globals
+  // TODO(gmicros): add all the pulse gen and output code here
+
+  const float rad_per_deg = 0.01745329251;      // value of a radian per degree
+  float theta = 0;
+  int pulse_width_sin = 127;
+    for (int i = 0; i < 360 * num_pulses; i ++) {
+      analogWrite( pulse_output_pin , pulse_width_sin );    // PWM output at the given pins
+      
+      theta = theta + rad_per_deg;
+
+      pulse_width_sin = 127 * sin(theta) + 128;      
+     
+      delayMicroseconds(sample_time);  // control the frequency here
+    }
+
+  analogWrite( pulse_output_pin, 0 );
 }

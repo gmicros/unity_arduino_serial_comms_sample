@@ -20,18 +20,6 @@
 #include "UnityArduinoComms.h"
 
 
-
-// related to pulse generation
-#define sin_out_put_pin 5
-#define cos_out_put_pin 6
-
-const float rad_per_deg = 0.01745329251;      // value of a radian per degree
-float theta = 0;
-int pulse_width_sin = 0;
-int pulse_width_cos = 0;
-// to control the increments or decrements of angle parameter
-int sign = 1;
-
 String inputString = "";         // a String to hold incoming data
 
 void setup() {
@@ -45,32 +33,10 @@ void setup() {
 
 // this loop is constantly running in the background
 void loop() {
-  // TODO(gmicros): check for valid flag and do stuff
-
-  // TODO(gmicros): reset the flag and wait
-
-  if (output_pulse) {
-    for (int i = 0; i < 360 * num_pulses; i ++) {
-      analogWrite( pulse_output_pin , pulse_width_sin );    // PWM output at the given pins
-      analogWrite( cos_out_put_pin , pulse_width_cos );
-
-      if (theta == 3.14159265359) sign = -1;   // keep increasing the value of theta till pi and the decrease till zero
-      else if (theta == 0) sign = 1;
-
-      theta = theta + (rad_per_deg * sign);
-
-      pulse_width_sin = 255 * sin(theta);
-      pulse_width_cos = 255 * cos(theta);
-
-      pulse_width_sin = abs(pulse_width_sin);
-      pulse_width_cos = abs(pulse_width_cos);
-
-      delayMicroseconds(sample_time);  // control the frequency here
-    }
+  if(output_pulse) {
+    generateWaveform();
     output_pulse = false;
   }
-
-  analogWrite( sin_out_put_pin , 0 );
 }
 
 /*

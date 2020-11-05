@@ -58,4 +58,6 @@ int parseIntString(String const str);
 // $UNITY,0,100,6,*30
 bool parseCommandString(String command);
 
+void generateWaveform();
+
 #endif
