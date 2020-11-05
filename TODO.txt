@@ -7,3 +7,7 @@
 
 
 // get to a place that I can borrow the oscope from shoots this evening and test some things out
+
+
+// test with the UNITY game
+// update README for how to use serial monitor of testing
