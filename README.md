@@ -7,13 +7,13 @@ The messaging interface "$" as a start delimiter for the message, followed by th
 
 ## Testing
 
-For testing and troubleshooting the Arduino code it is useful use the Serial Monitor that comes with the Arduino IDE. 
-
-The Arduino requires the framed message to actually do anything. So try this string for testing:
+For testing and troubleshooting the Arduino code it is useful use the Serial Monitor that comes with the Arduino IDE. The Arduino program requires the framed message to actually do anything. So try this string for testing:
 
 `$UNITY,0,100,6,*30`
 
 Otherwise you will get a response telling you what is wrong. 
+
+Also the Unity "2d-clicker-game" is an example game that uses the library to send messages when a series of buttons are pressed. 
 
 
 
