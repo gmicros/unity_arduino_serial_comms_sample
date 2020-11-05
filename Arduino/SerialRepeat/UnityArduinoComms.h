@@ -14,6 +14,13 @@
 #define MIN_INTENSITY 0
 #define MAX_INTENSITY 10
 
+// pins used to output waveform
+#define VIBROTACTOR_0_PIN 3
+#define VIBROTACTOR_1_PIN 5
+#define VIBROTACTOR_2_PIN 6
+#define VIBROTACTOR_3_PIN 9
+
+
 // flag to output pulse
 extern bool output_pulse;
 // number of pulses to ouput
