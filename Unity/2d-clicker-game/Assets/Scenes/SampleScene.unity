@@ -438,7 +438,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   vibro: 3
-  duration: 120
+  duration: 12
   intensity: 4
 --- !u!4 &407353588
 Transform:
@@ -927,7 +927,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   vibro: 0
-  duration: 150
+  duration: 15
   intensity: 4
 --- !u!4 &1000606433
 Transform:
@@ -972,8 +972,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3414ac19f7fdc5341b97c59810eefc93, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  vibro: 2
-  duration: 144
+  vibro: 1
+  duration: 10
   intensity: 9
 --- !u!4 &1006593387
 Transform:
@@ -1213,8 +1213,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3414ac19f7fdc5341b97c59810eefc93, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  vibro: 1
-  duration: 100
+  vibro: 2
+  duration: 3
   intensity: 4
 --- !u!4 &1913148951
 Transform:
