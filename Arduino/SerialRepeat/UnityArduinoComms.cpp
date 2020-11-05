@@ -7,7 +7,7 @@ String field_delimiter = ",";
 String checksum_delimiter = "*";
 
 // TODO(gmicros): hardcoded for testing
-bool output_pulse = true;
+bool output_pulse = false;
 int num_pulses = 5;
 int pulse_output_pin = 5;
 int sample_time = 20;

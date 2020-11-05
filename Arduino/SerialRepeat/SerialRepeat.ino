@@ -48,20 +48,16 @@ void serialEvent() {
   while (Serial.available()) {
     // get the new byte:
     char inChar = (char)Serial.read();
-    // add it to the inputString:
+    // append to input string
     inputString += inChar;
-    // if the incoming character is a newline, set a flag so the main loop can
-    // do something about it:
-    //output_pulse = true;
+    //find the end of line
     if (inChar == '\n') {
-      output_pulse = true;
-      //Serial.write(inputString.c_str());
+      // parse string for a valid command
       bool val = parseCommandString(inputString);
       if (val) {
-        //Serial.write(inputString.c_str());
         output_pulse = true;
-
       }
+      // clear the receive buffer
       inputString = "";
     }
   }
