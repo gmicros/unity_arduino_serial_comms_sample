@@ -37,22 +37,22 @@ bool validateVibrotactor(int const vibrotactor) {
   switch (vibrotactor) {
     case 0:
       // front vib
-      //num_pulses = 1;
+      pulse_output_pin = VIBROTACTOR_0_PIN;
       break;
 
     case 1:
       // left vib
-      //num_pulses = 2;
+      pulse_output_pin = VIBROTACTOR_1_PIN;
       break;
 
     case 2:
       // back vib
-      //num_pulses = 3;
+      pulse_output_pin = VIBROTACTOR_2_PIN;
       break;
 
     case 3:
       // right vib
-      //num_pulses = 4;
+      pulse_output_pin = VIBROTACTOR_3_PIN;
       break;
   }
   return true;
