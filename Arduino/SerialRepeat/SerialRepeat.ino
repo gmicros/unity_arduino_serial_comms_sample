@@ -33,7 +33,7 @@ void setup() {
 
 // this loop is constantly running in the background
 void loop() {
-  if(output_pulse) {
+  if (output_pulse) {
     generateWaveform();
     output_pulse = false;
   }
@@ -51,8 +51,8 @@ void serialEvent() {
     // add it to the inputString:
     inputString += inChar;
     // if the incoming character is a newline, set a flag so the main loop can
-    // do something about it:   
-    //output_pulse = true; 
+    // do something about it:
+    //output_pulse = true;
     if (inChar == '\n') {
       output_pulse = true;
       //Serial.write(inputString.c_str());
@@ -60,7 +60,7 @@ void serialEvent() {
       if (val) {
         //Serial.write(inputString.c_str());
         output_pulse = true;
-        
+
       }
       inputString = "";
     }

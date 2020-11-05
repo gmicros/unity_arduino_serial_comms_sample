@@ -1,7 +1,7 @@
 /**
- *  \file UnityArduinoComms.h
- *  \brief Interface for Arduino communicating with Unity
- */
+    \file UnityArduinoComms.h
+    \brief Interface for Arduino communicating with Unity
+*/
 #ifndef UnityArduinoComms_n
 #define UnityArduinoComms_n
 
@@ -32,23 +32,23 @@ extern int pulse_output_pin;
 extern int sample_time;
 
 /**
- *  \brief Validate duration received
- *  
- *  \param [in] duration in milliseconds
- *  \return true for value within range
- *  
- *  \details More details
- */
+    \brief Validate duration received
+
+    \param [in] duration in milliseconds
+    \return true for value within range
+
+    \details More details
+*/
 bool validateDuration(int const duration);
 
 /**
- *  \brief Validate intensity received
- *  
- *  \param [in] intensity of vibration
- *  \return true for value within range
- *  
- *  \details More details
- */
+    \brief Validate intensity received
+
+    \param [in] intensity of vibration
+    \return true for value within range
+
+    \details More details
+*/
 bool validateIntensity(int const intensity);
 
 bool validateVibrotactor(int const vibrotactor);
