@@ -3,3 +3,7 @@
 [] better circuit?
 [] can intensity be controlled?
 [] different waveforms?
+
+
+
+// get to a place that I can borrow the oscope from shoots this evening and test some things out
