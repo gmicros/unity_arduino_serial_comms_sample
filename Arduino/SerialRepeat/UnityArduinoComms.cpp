@@ -176,7 +176,7 @@ void generateWaveform() {
   const float rad_per_deg = 0.01745329251;      // value of a radian per degree
   float theta = 0;
   int pulse_width_sin = 127;
-  for (int i = 0; i < 360 * num_pulses; i ++) {
+  for (unsigned int i = 0; i < 360 * num_pulses; i ++) {
     analogWrite( pulse_output_pin , pulse_width_sin );    // PWM output at the given pins
 
     theta = theta + rad_per_deg;

@@ -10,7 +10,9 @@
 #define MIN_VIBROTACTOR 0
 #define MAX_VIBROTACTOR 4
 #define MIN_DURATION 0
-#define MAX_DURATION 1000
+// max unsigned int is 2^16 and the same variable is used to 
+// increment the angle so 2^16 / 360 
+#define MAX_DURATION 182
 #define MIN_INTENSITY 0
 #define MAX_INTENSITY 10
 
