@@ -16,6 +16,7 @@ bool validateDuration(int const duration) {
   if (duration < MIN_DURATION || duration > MAX_DURATION) {
     return false;
   }
+  num_pulses = duration;
 
   return true;
 }
@@ -36,22 +37,22 @@ bool validateVibrotactor(int const vibrotactor) {
   switch (vibrotactor) {
     case 0:
       // front vib
-      num_pulses = 1;
+      //num_pulses = 1;
       break;
 
     case 1:
       // left vib
-      num_pulses = 2;
+      //num_pulses = 2;
       break;
 
     case 2:
       // back vib
-      num_pulses = 3;
+      //num_pulses = 3;
       break;
 
     case 3:
       // right vib
-      num_pulses = 4;
+      //num_pulses = 4;
       break;
   }
   return true;
