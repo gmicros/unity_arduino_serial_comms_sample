@@ -22,6 +22,7 @@
 // related to pulse generation
 #define sin_out_put_pin 5
 #define cos_out_put_pin 6
+
 const float rad_per_deg = 0.01745329251;      // value of a radian per degree
 float theta = 0;
 int pulse_width_sin = 0;
@@ -30,7 +31,6 @@ int pulse_width_cos = 0;
 int sign = 1;
 
 String inputString = "";         // a String to hold incoming data
-bool stringComplete = false;  // whether the string is complete
 
 void setup() {
   // initialize serial:
@@ -87,7 +87,6 @@ void serialEvent() {
     //output_pulse = true; 
     if (inChar == '\n') {
       output_pulse = true;
-      stringComplete = true;
       //Serial.write(inputString.c_str());
       bool val = parseCommandString(inputString);
       if (val) {
