@@ -1,0 +1,6 @@
+The source for the library should be here. 
+
+Separate the Unity from the Arduino code. 
+Both have to be added to the project. 
+The unity side and the arduino side.
+Also add instructions on how to do this in the README
