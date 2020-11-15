@@ -7,16 +7,22 @@
 
 #include "Arduino.h"
 
+// valid range for vibrotactors
 #define MIN_VIBROTACTOR 0
 #define MAX_VIBROTACTOR 4
+
+// valid range for duration
 #define MIN_DURATION 0
 // max unsigned int is 2^16 and the same variable is used to 
 // increment the angle so 2^16 / 360 
 #define MAX_DURATION 182
+
+// valid range for intensity
 #define MIN_INTENSITY 0
 #define MAX_INTENSITY 10
 
 // pins used to output waveform
+// this must match what is in C#
 #define VIBROTACTOR_0_PIN 3
 #define VIBROTACTOR_1_PIN 5
 #define VIBROTACTOR_2_PIN 6

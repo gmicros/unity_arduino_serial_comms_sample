@@ -1,21 +1,18 @@
 /*
-  Serial Event example
+ * TODO(gmicros): rename this file and folder to something meaningful
+ * eg. ExampleUnityArduinoComms.ino
+  
+  An example program for using UnityArduinoComms to receive commands from a Unity game
+  and generate waveforms based on received parameters to actuate vibrotactors.
 
   When new serial data arrives, this sketch adds it to a String.
-  When a newline is received, the loop prints the string and clears it.
-
-  A good test for this is to try it with a GPS receiver that sends out
-  NMEA 0183 sentences.
+  When a newline is received the string is considered terminated. The string is parsed
+  for waveform parameters which are validated. If valid the loop calls generateWaveform()
+  that triggers the vibrotactors.
 
   NOTE: The serialEvent() feature is not available on the Leonardo, Micro, or
   other ATmega32U4 based boards.
-
-  created 9 May 2011
-  by Tom Igoe
-
-  This example code is in the public domain.
-
-  http://www.arduino.cc/en/Tutorial/SerialEvent
+  
 */
 #include "UnityArduinoComms.h"
 
