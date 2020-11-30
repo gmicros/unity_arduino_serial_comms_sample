@@ -39,7 +39,10 @@ There are two calls that this library exposes:
 In order to changes the pins that are used by Arduino changes must be made in the library for both Unity and Arduino. 
 
 In Unity/UnityArduinoComms.cs the enumration Vibrotactor defines the mapping and naming of the enumration. The name itself is not important, only the value and that it maps to a corresponding value on the Arduino side. 
-In Arduino/UnityArduinoComms.h the #defines starting with VIBROTACTOR define the pins that map to the each enumration. Followint the naming convention used will help maintain consistency. So that a 0 unity maps to a 0 in arduino which output on the pin defined by VIBROTACTOR\0.
+
+In Arduino/UnityArduinoComms.h the #defines starting with VIBROTACTOR define the pins that map to the each enumration. 
+
+Following the naming convention used will help maintain consistency. So that a 0 unity maps to a 0 in arduino which output on the pin defined by VIBROTACTOR\_0.
 
 
 
