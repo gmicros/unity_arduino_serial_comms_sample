@@ -1,6 +1,10 @@
 # unity_arduino_serial_comms
 
-A library to communicate messages from Unity to Arduino. The library contains a component for Unity and Arduino that can be easily included into other projects. The messages contain commands to actuate vibrotactors. 
+A library to communicate messages from Unity to Arduino. 
+
+The communication is done over serial port with an Arduino connected with USB to the computer running the Unity app. 
+
+The library contains a component for Unity and Arduino that can be easily included into other projects. The messages contain commands to actuate vibrotactors. 
 
 Sample projects are included to demonstrate the communication.
 
@@ -27,6 +31,7 @@ The parameters are passed to construct the framed message.
 The resulting framed message is sent. 
 ### Arduino
 
+Under Src/Arduino/VibrotactorActuator. 
 The Arduino part of the library is contained in UnityArduinoComms.h and UnityArduinoComms.cpp. 
 These files can be added to the Arduino libraries directory (this is a system directory) or can be added to the desired project. 
 
@@ -44,6 +49,14 @@ In Arduino/UnityArduinoComms.h the #defines starting with VIBROTACTOR define the
 
 Following the naming convention used will help maintain consistency. So that a 0 unity maps to a 0 in arduino which output on the pin defined by VIBROTACTOR\_0.
 
+
+## Sample Applications
+
+As part of the project are apps provided to demonstrate how the library is used. 
+
+The UnitySampleApp is a simple 2D Unity game with widgets that trigger a message to be send to Arduino. 
+
+Under Src/Arduino/VibrotactorActutor, VibrotactorActuator.ino is a simple sketch that receives messages over the serial port and parse the values to generate the desired waveform. This sketch can be used as is or as a good starting point for a project that actuate vibrotactors. 
 
 
 ## Message Structure 
