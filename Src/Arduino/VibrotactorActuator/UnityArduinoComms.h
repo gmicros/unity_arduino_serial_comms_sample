@@ -23,10 +23,14 @@
 
 // pins used to output waveform
 // this must match what is in C#
+// NOTE: these are PWM pins. PWN pins need to be used to output varying amplitude
+// the values here are the PWM pins on an arduino UNO, make sure these match your device
 #define VIBROTACTOR_0_PIN 3
 #define VIBROTACTOR_1_PIN 5
 #define VIBROTACTOR_2_PIN 6
 #define VIBROTACTOR_3_PIN 9
+#define VIBROTACTOR_4_PIN 10
+#define VIBROTACTOR_5_PIN 11
 
 
 // flag to output pulse
