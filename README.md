@@ -72,5 +72,9 @@ Otherwise you will get a response telling you what is wrong.
 
 Also the Unity "2d-clicker-game" is an example game that uses the library to send messages when a series of buttons are pressed. 
 
+## CIRCUIT DETAILS 
+
+The Arduino does not drive the vibrotactor directly. The signal from the Arduino feeds into a common collector amplifier using an NPN transistor. 
+
 
 
